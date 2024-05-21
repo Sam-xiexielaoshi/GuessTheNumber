@@ -23,22 +23,11 @@ document.querySelector('.check'),
         this.document.querySelector('.highscore').textContent = highScore;
       }
     }
-    //when guess is too high
-    else if (guess > secretNumber) {
+    //when the guess wrong
+    else if (guess !== secretNumber) {
       if (score > 1) {
-        this.document.querySelector('.message').textContent = 'Too High!';
-        score--;
-        this.document.querySelector('.score').textContent = score;
-      } else {
-        this.document.querySelector('.message').textContent = 'you lose!';
-        this.document.querySelector('.score').textContent = 0;
-        this.document.querySelector('body').style.backgroundColor = 'red';
-      }
-
-      //when the guess is too low
-    } else if (guess < secretNumber) {
-      if (score > 1) {
-        this.document.querySelector('.message').textContent = 'Too Low!';
+        this.document.querySelector('.message').textContent =
+          guess > secretNumber ? 'Too High!' : 'Too Low!';
         score--;
         this.document.querySelector('.score').textContent = score;
       } else {
@@ -47,6 +36,30 @@ document.querySelector('.check'),
         this.document.querySelector('body').style.backgroundColor = 'red';
       }
     }
+    //when guess is too high
+    //     else if (guess > secretNumber) {
+    //         if (score > 1) {
+    //             this.document.querySelector('.message').textContent = 'Too High!';
+    //             score--;
+    //             this.document.querySelector('.score').textContent = score;
+    //           } else {
+    //             this.document.querySelector('.message').textContent = 'you lose!';
+    //             this.document.querySelector('.score').textContent = 0;
+    //             this.document.querySelector('body').style.backgroundColor = 'red';
+    //           }
+
+    //     }  //when the guess is too low
+    //     else if (guess < secretNumber) {
+    //       if (score > 1) {
+    //         this.document.querySelector('.message').textContent = 'Too Low!';
+    //         score--;
+    //         this.document.querySelector('.score').textContent = score;
+    //       } else {
+    //         this.document.querySelector('.message').textContent = 'you lose!';
+    //         this.document.querySelector('.score').textContent = 0;
+    //         this.document.querySelector('body').style.backgroundColor = 'red';
+    //       }
+    //     }
   });
 
 document.querySelector('.again').addEventListener('click', function () {
